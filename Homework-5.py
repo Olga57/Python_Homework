@@ -49,5 +49,16 @@ with open ('number.txt', 'w') as f:
     print('Сумма введенных чисел:',sum_numbers)
 print('Все записано')
 
+#Задание 6 - создание словаря по данным файла
+my_dict = dict()
+with open('les.txt',encoding='utf-8') as f:
+    lines = f.readlines()
+    for line in lines:
+        splitted_line=line.split()
+        subject=splitted_line[0]
+        sum_lessons=sum([int(x[:x.find('(')]) for x in splitted_line[1:] if '('in x])
+        my_dict[subject]=sum_lessons
+print(my_dict)
+
 
 
