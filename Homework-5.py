@@ -60,5 +60,26 @@ with open('les.txt',encoding='utf-8') as f:
         my_dict[subject]=sum_lessons
 print(my_dict)
 
+#Задание 7 - вычисление прибыли, реализация списка
+import json
+firm_dict={}
+average_profit=[]
+with open('comp.txt') as f:
+    lines=f.readlines()
+    for line in lines:
+        name, form, revenue, costs = line.split()
+        profit=int(revenue)-int(costs)
+        firm_dict[name]=profit
+        if profit>0:
+            average_profit.append(profit)
+
+average_profit=sum(average_profit)/len(average_profit)
+total_info=[firm_dict,{'average_profit':average_profit}]
+with open ('comp.json','w')as f_json:
+    json.dump(total_info,f_json)
+
+with open ('comp.json')as f_json:
+    print(json.load(f_json))
+
 
 
