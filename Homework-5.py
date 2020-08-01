@@ -39,6 +39,15 @@ with open ('russian.txt', 'w', encoding='utf-8') as f:
         elif '4' in lines:
             line=line.replace('Four', 'Четыре')
         f.write(line)
+#Задание 5 - запись набора числе в файл, подсчет суммы чисел в файле
+with open ('number.txt', 'w') as f:
+    numbers=input('Введите целые числа через пробел:')
+    f.write('Введенные числа:' +numbers+'\n')
+    numbers=map(int,numbers.split())
+    sum_numbers=sum(numbers)
+    f.write('Сумма чисел:' +str(sum_numbers))
+    print('Сумма введенных чисел:',sum_numbers)
+print('Все записано')
 
 
 
